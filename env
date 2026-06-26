@@ -1,0 +1,98 @@
+# ============================================
+# Connect With Bayezid - Environment Variables
+# ============================================
+
+# Backend API Configuration
+BACKEND_API_KEY=sk-coeymmL39oHdAnEtlXoX3tDEdemnyZX03_wPIdWToCs6rx0guPhi8dptfuJdUxqCXvwCT75_NeeRlK7dn4l5r9DSUPxb
+BACKEND_API_URL=https://your-manus-backend.com/api/trpc
+
+# Owner/Admin Email
+OWNER_EMAIL=sayadmdbayezidhosan@gmail.com
+
+# SMTP Configuration (Gmail)
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=your-gmail@gmail.com
+SMTP_PASSWORD=your-16-character-app-password
+SMTP_FROM=noreply@sayadbayezid.com
+
+# Database Configuration
+DATABASE_URL=mysql://root:password@localhost:3306/bayezid_db
+
+# JWT Secret
+JWT_SECRET=your-super-secret-jwt-key-change-this
+
+# Frontend URL
+FRONTEND_URL=https://yourusername.github.io/sayadbayezid
+
+# Environment
+NODE_ENV=production
+
+# Feature Flags
+ENABLE_EMAIL_NOTIFICATIONS=true
+ENABLE_PUSH_NOTIFICATIONS=true
+ENABLE_LOGGING=true
+
+# API Endpoints
+API_ENDPOINT_NEWSLETTER=/api/trpc/newsletters.subscribe
+API_ENDPOINT_INQUIRY=/api/trpc/inquiries.submit
+API_ENDPOINT_ORDER=/api/trpc/orders.submit
+API_ENDPOINT_FEEDBACK=/api/trpc/feedback.submit
+
+# Notification Settings
+NOTIFY_ON_NEWSLETTER=true
+NOTIFY_ON_INQUIRY=true
+NOTIFY_ON_ORDER=true
+NOTIFY_ON_FEEDBACK=true
+
+# Email Settings
+EMAIL_SUBJECT_NEWSLETTER=🎉 New Newsletter Subscriber
+EMAIL_SUBJECT_INQUIRY=📧 New Client Inquiry
+EMAIL_SUBJECT_ORDER=🛒 New Service Order
+EMAIL_SUBJECT_FEEDBACK=⭐ New Feedback
+
+# Application Settings
+APP_NAME=Connect With Bayezid
+APP_TITLE=Connect With Bayezid - Digital Services
+APP_DESCRIPTION=Professional digital marketing, web development, SEO, and content creation services
+
+# Contact Information
+CONTACT_EMAIL=sayadmdbayezidhosan@gmail.com
+CONTACT_PHONE=+880-1234-567890
+CONTACT_ADDRESS=Tangail, Bangladesh
+
+# Social Media
+SOCIAL_FACEBOOK=https://facebook.com/sayadbayezid
+SOCIAL_TWITTER=https://twitter.com/sayadbayezid
+SOCIAL_LINKEDIN=https://linkedin.com/in/sayadbayezid
+SOCIAL_INSTAGRAM=https://instagram.com/sayadbayezid
+
+# Analytics
+ANALYTICS_ENABLED=true
+ANALYTICS_ID=your-analytics-id
+
+# Rate Limiting
+RATE_LIMIT_ENABLED=true
+RATE_LIMIT_WINDOW=15m
+RATE_LIMIT_MAX_REQUESTS=100
+
+# Logging
+LOG_LEVEL=info
+LOG_FORMAT=json
+
+# Security
+CORS_ENABLED=true
+CORS_ORIGIN=*
+HELMET_ENABLED=true
+
+# Cache
+CACHE_ENABLED=true
+CACHE_TTL=3600
+
+# Backup
+BACKUP_ENABLED=true
+BACKUP_FREQUENCY=daily
+
+# Monitoring
+MONITORING_ENABLED=true
+MONITORING_INTERVAL=300000
