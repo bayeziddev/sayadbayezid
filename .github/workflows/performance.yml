@@ -1,0 +1,33 @@
+name: Performance Check
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  performance:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Check file sizes
+        run: |
+          echo "File Size Analysis:"
+          echo "===================="
+          du -h index.html
+          du -h css/style.css
+          du -h js/main.js
+          echo ""
+          echo "Total size:"
+          du -sh .
+
+      - name: Count lines of code
+        run: |
+          echo "Lines of Code:"
+          echo "=============="
+          echo "HTML: $(wc -l < index.html) lines"
+          echo "CSS: <LaTex>$(wc -l < css/style.css) lines"
+          echo "JavaScript: $</LaTex>(wc -l < js/main.js) lines"
