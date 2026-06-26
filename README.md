@@ -1,4 +1,6 @@
 # Connect With Bayezid - Portfolio Website
+[![Deploy to GitHub Pages](https://github.com/Sayadbayezid/connect-with-bayezid-official/actions/workflows/deploy.yml/badge.svg)](https://github.com/Sayadbayezid/connect-with-bayezid-official/actions/workflows/deploy.yml)
+
 
 A modern, responsive HTML portfolio website for digital services and technology solutions.
 
