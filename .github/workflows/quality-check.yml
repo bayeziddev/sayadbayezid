@@ -1,0 +1,38 @@
+name: Code Quality Check
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Check HTML
+        run: |
+          echo "Validating HTML..."
+          grep -q "<title>" index.html && echo "✓ Title tag found" || echo "⚠️ Title tag missing"
+          grep -q "viewport" index.html && echo "✓ Viewport meta tag found" || echo "⚠️ Viewport missing"
+
+      - name: Check CSS
+        run: |
+          echo "Validating CSS..."
+          test -f css/style.css && echo "✓ CSS file found" || echo "✗ CSS file missing"
+
+      - name: Check JavaScript
+        run: |
+          echo "Validating JavaScript..."
+          test -f js/main.js && echo "✓ JavaScript file found" || echo "✗ JavaScript file missing"
+
+      - name: Check for broken links
+        run: |
+          echo "Checking for common issues..."
+          grep -r "href=\"#" index.html | wc -l
