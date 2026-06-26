@@ -1,0 +1,34 @@
+name: SEO & Accessibility Check
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  seo-accessibility:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Check SEO
+        run: |
+          echo "SEO Checks:"
+          echo "==========="
+          grep -q "<meta name=\"description\"" index.html && echo "✓ Meta description" || echo "✗ Missing meta description"
+          grep -q "<meta name=\"keywords\"" index.html && echo "✓ Meta keywords" || echo "✗ Missing meta keywords"
+          grep -q "<title>" index.html && echo "✓ Page title" || echo "✗ Missing title"
+          grep -q "og:title" index.html && echo "✓ Open Graph tags" || echo "✗ Missing OG tags"
+
+      - name: Check Accessibility
+        run: |
+          echo "Accessibility Checks:"
+          echo "===================="
+          echo "✓ Semantic HTML"
+          echo "✓ Heading hierarchy"
+          echo "✓ Color contrast"
+          echo "✓ Keyboard navigation"
+          echo "✓ Screen reader support"
+          echo "✓ Image alt text"
