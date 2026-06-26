@@ -599,6 +599,8 @@
         </div>
     </footer>
 
+    <script src="../js/config.js"></script>
+    <script src="../js/api.js"></script>
     <script>
         // Mobile menu toggle
         const hamburger = document.getElementById('hamburger');
@@ -663,69 +665,98 @@
         async function submitInquiry(event) {
             event.preventDefault();
             const form = event.target;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            
             const data = {
                 name: document.getElementById('inquiryName').value,
                 email: document.getElementById('inquiryEmail').value,
                 message: document.getElementById('inquiryMessage').value
             };
 
-            try {
-                // Replace with your actual API endpoint
-                const response = await fetch('https://your-manus-backend.com/api/trpc/inquiries.submit', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
+            // Validate email
+            if (!validateEmail(data.email)) {
+                showNotification('Please enter a valid email address', 'error');
+                return;
+            }
 
-                if (response.ok) {
+            try {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+
+                const result = await submitInquiry(data);
+
+                if (result.success) {
                     document.getElementById('inquirySuccess').style.display = 'block';
                     form.reset();
+                    showNotification(APP_CONFIG.FORMS.MESSAGES.INQUIRY_SUCCESS, 'success');
                     setTimeout(() => {
                         document.getElementById('inquirySuccess').style.display = 'none';
                     }, 5000);
+                } else {
+                    throw new Error(result.error);
                 }
             } catch (error) {
-                document.getElementById('inquiryErrorText').textContent = error.message;
+                console.error('Inquiry submission error:', error);
+                document.getElementById('inquiryErrorText').textContent = error.message || APP_CONFIG.FORMS.MESSAGES.INQUIRY_ERROR;
                 document.getElementById('inquiryError').style.display = 'block';
+                showNotification(APP_CONFIG.FORMS.MESSAGES.INQUIRY_ERROR, 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Inquiry';
             }
         }
 
         async function submitNewsletter(event) {
             event.preventDefault();
             const form = event.target;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            
             const data = {
                 name: document.getElementById('newsletterName').value,
                 email: document.getElementById('newsletterEmail').value
             };
 
-            try {
-                const response = await fetch('https://your-manus-backend.com/api/trpc/newsletters.subscribe', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
+            // Validate email
+            if (!validateEmail(data.email)) {
+                showNotification('Please enter a valid email address', 'error');
+                return;
+            }
 
-                if (response.ok) {
+            try {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Subscribing...';
+
+                const result = await subscribeNewsletter(data);
+
+                if (result.success) {
                     document.getElementById('newsletterSuccess').style.display = 'block';
                     form.reset();
+                    showNotification(APP_CONFIG.FORMS.MESSAGES.NEWSLETTER_SUCCESS, 'success');
                     setTimeout(() => {
                         document.getElementById('newsletterSuccess').style.display = 'none';
                     }, 5000);
+                } else {
+                    throw new Error(result.error);
                 }
             } catch (error) {
-                document.getElementById('newsletterErrorText').textContent = error.message;
+                console.error('Newsletter subscription error:', error);
+                document.getElementById('newsletterErrorText').textContent = error.message || APP_CONFIG.FORMS.MESSAGES.NEWSLETTER_ERROR;
                 document.getElementById('newsletterError').style.display = 'block';
+                showNotification(APP_CONFIG.FORMS.MESSAGES.NEWSLETTER_ERROR, 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Subscribe';
             }
         }
 
         async function submitFeedback(event) {
             event.preventDefault();
             const form = event.target;
+            const submitBtn = form.querySelector('button[type="submit"]');
             const rating = document.querySelector('input[name="rating"]:checked');
             
             if (!rating) {
-                document.getElementById('feedbackErrorText').textContent = 'Please select a rating';
-                document.getElementById('feedbackError').style.display = 'block';
+                showNotification('Please select a rating', 'error');
                 return;
             }
 
@@ -736,24 +767,37 @@
                 message: document.getElementById('feedbackMessage').value
             };
 
-            try {
-                const response = await fetch('https://your-manus-backend.com/api/trpc/feedback.submit', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
+            // Validate email
+            if (!validateEmail(data.email)) {
+                showNotification('Please enter a valid email address', 'error');
+                return;
+            }
 
-                if (response.ok) {
+            try {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Submitting...';
+
+                const result = await submitFeedback(data);
+
+                if (result.success) {
                     document.getElementById('feedbackSuccess').style.display = 'block';
                     form.reset();
                     starLabels.forEach(label => label.style.color = '#ddd');
+                    showNotification(APP_CONFIG.FORMS.MESSAGES.FEEDBACK_SUCCESS, 'success');
                     setTimeout(() => {
                         document.getElementById('feedbackSuccess').style.display = 'none';
                     }, 5000);
+                } else {
+                    throw new Error(result.error);
                 }
             } catch (error) {
-                document.getElementById('feedbackErrorText').textContent = error.message;
+                console.error('Feedback submission error:', error);
+                document.getElementById('feedbackErrorText').textContent = error.message || APP_CONFIG.FORMS.MESSAGES.FEEDBACK_ERROR;
                 document.getElementById('feedbackError').style.display = 'block';
+                showNotification(APP_CONFIG.FORMS.MESSAGES.FEEDBACK_ERROR, 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Feedback';
             }
         }
     </script>
