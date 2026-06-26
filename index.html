@@ -9,6 +9,19 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Manus Backend Configuration -->
+    <script>
+        // Auto-configure Manus backend URL
+        // This will automatically connect to your Manus backend
+        window.MANUS_BACKEND_URL = 'https://your-manus-backend.com/api/trpc';
+        
+        // Or if using environment variables:
+        // window.MANUS_BACKEND_URL = process.env.REACT_APP_MANUS_BACKEND;
+    </script>
+    
+    <!-- Manus API Client -->
+    <script src="js/manus-api-client.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -27,7 +40,7 @@
                     <a href="#blog" class="nav-link">Blog</a>
                     <a href="#testimonials" class="nav-link">Testimonials</a>
                     <a href="#pricing" class="nav-link">Pricing</a>
-                    <a href="pages/contact.html" class="nav-link">Contact</a>
+                    <a href="#contact" class="nav-link">Contact</a>
                 </div>
                 <div class="hamburger" id="hamburger">
                     <span></span>
@@ -123,378 +136,73 @@
         </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-            <h2 class="section-title">Portfolio</h2>
-            <p class="section-subtitle">Recent projects and success stories</p>
-            
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <div class="placeholder-image">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>E-Commerce Platform</h3>
-                        <p class="portfolio-category">Web Development</p>
-                        <p>Full-featured e-commerce platform with payment integration and inventory management.</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <div class="placeholder-image">
-                            <i class="fas fa-chart-bar"></i>
-                        </div>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Digital Marketing Campaign</h3>
-                        <p class="portfolio-category">Marketing</p>
-                        <p>Successful social media campaign that increased client engagement by 300%.</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <div class="placeholder-image">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Mobile App Development</h3>
-                        <p class="portfolio-category">App Development</p>
-                        <p>Cross-platform mobile application with 50K+ downloads and 4.8 star rating.</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <div class="placeholder-image">
-                            <i class="fas fa-pen"></i>
-                        </div>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Content Strategy</h3>
-                        <p class="portfolio-category">Content Creation</p>
-                        <p>Comprehensive content strategy resulting in 10x organic traffic growth.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2 class="section-title">About Me</h2>
-                    <p>Hi! I'm Sayad Md Bayezid, a technology entrepreneur and digital marketing expert based in Tangail, Bangladesh.</p>
-                    
-                    <p>I'm the founder of <strong>CWB Agency</strong> (Connect With Bayezid), <strong>GenZFrontier</strong> (digital news portal), and <strong>SmartGen</strong> (QR code generator).</p>
-                    
-                    <p>My expertise includes:</p>
-                    <ul class="expertise-list">
-                        <li><i class="fas fa-check"></i> Full-stack web development with modern AI tools</li>
-                        <li><i class="fas fa-check"></i> SEO optimization and digital marketing</li>
-                        <li><i class="fas fa-check"></i> Content strategy and blog writing</li>
-                        <li><i class="fas fa-check"></i> Multi-channel content strategy</li>
-                        <li><i class="fas fa-check"></i> High-resolution image synthesis</li>
-                        <li><i class="fas fa-check"></i> Video generation and editing</li>
-                    </ul>
-
-                    <p>Currently, I'm a final-year undergraduate student in English at Northern University Bangladesh. My goal is to leverage AI to scale digital ventures and provide top-tier services to clients.</p>
-
-                    <div class="about-stats">
-                        <div class="stat">
-                            <h3>50+</h3>
-                            <p>Projects Completed</p>
-                        </div>
-                        <div class="stat">
-                            <h3>100%</h3>
-                            <p>Client Satisfaction</p>
-                        </div>
-                        <div class="stat">
-                            <h3>3+</h3>
-                            <p>Years Experience</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section id="blog" class="blog">
-        <div class="container">
-            <h2 class="section-title">Latest Blog Posts</h2>
-            <p class="section-subtitle">Insights and tips on digital marketing and web development</p>
-            
-            <div class="blog-grid">
-                <article class="blog-card">
-                    <div class="blog-image">
-                        <div class="placeholder-image">
-                            <i class="fas fa-laptop"></i>
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <span class="blog-category">Web Development</span>
-                        <h3>Building Modern Web Applications with React</h3>
-                        <p>Learn how to build scalable and performant web applications using React and modern development practices.</p>
-                        <a href="#blog" class="read-more">Read More →</a>
-                    </div>
-                </article>
-
-                <article class="blog-card">
-                    <div class="blog-image">
-                        <div class="placeholder-image">
-                            <i class="fas fa-search"></i>
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <span class="blog-category">SEO</span>
-                        <h3>Complete SEO Guide for 2024</h3>
-                        <p>Master the latest SEO techniques and strategies to improve your website's ranking and organic traffic.</p>
-                        <a href="#blog" class="read-more">Read More →</a>
-                    </div>
-                </article>
-
-                <article class="blog-card">
-                    <div class="blog-image">
-                        <div class="placeholder-image">
-                            <i class="fas fa-bullhorn"></i>
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <span class="blog-category">Marketing</span>
-                        <h3>Social Media Marketing Strategies That Work</h3>
-                        <p>Proven strategies to grow your social media presence and engage with your target audience effectively.</p>
-                        <a href="#blog" class="read-more">Read More →</a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <h2 class="section-title">Client Success Stories</h2>
-            <p class="section-subtitle">Real feedback from satisfied clients</p>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"Brother is very sincere and hardworking. I had an issue with boosting on my page, and he took the time to resolve it. Thank you, Freelancer Bayezid bhai. ❤️"</p>
-                    <p class="testimonial-author">Abdullah Al Zamil</p>
-                    <p class="testimonial-role">Client</p>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"I was really stressed about my page issue and had no idea what to do. Then I contacted Bayezid bhai, and he fixed everything within just 3 hours! 100% trusted, highly recommended."</p>
-                    <p class="testimonial-author">Golam Rabbi</p>
-                    <p class="testimonial-role">Client</p>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"Professional Solution for Facebook Payout Issues! He set up the payout account correctly, successfully resolved earning complications, and fixed the entire issue with great efficiency."</p>
-                    <p class="testimonial-author">Md Imran Sarder</p>
-                    <p class="testimonial-role">Client</p>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"My page's monetization was restricted due to 'Local Legal Requirements.' Bayezid bhai handled everything very professionally and resolved my issue very quickly. 100% trusted!"</p>
-                    <p class="testimonial-author">Golam Kibria</p>
-                    <p class="testimonial-role">Client</p>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"For quite some time, I was struggling with multiple issues on my ID—nothing seemed to work at all. But my dear brother, with his own skills, beautifully solved my problems. Thank you so much!"</p>
-                    <p class="testimonial-author">Rashid Mahmud Babu</p>
-                    <p class="testimonial-role">Client</p>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"I'm getting excellent results from Facebook ad campaigns, and all the credit goes to Freelancer Bayezid's service. Very consistent and professional. Always answered my questions!"</p>
-                    <p class="testimonial-author">Ariful</p>
-                    <p class="testimonial-role">Client</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <h2 class="section-title">Pricing Plans</h2>
-            <p class="section-subtitle">Flexible packages for every budget</p>
-            
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Starter</h3>
-                    <p class="price">$299<span>/month</span></p>
-                    <p class="description">Perfect for small businesses</p>
-                    <ul class="features">
-                        <li><i class="fas fa-check"></i> Website Setup</li>
-                        <li><i class="fas fa-check"></i> Basic SEO</li>
-                        <li><i class="fas fa-check"></i> Social Media Setup</li>
-                        <li><i class="fas fa-check"></i> Monthly Report</li>
-                        <li><i class="fas fa-times"></i> Content Creation</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-secondary">Get Started</a>
-                </div>
-
-                <div class="pricing-card featured">
-                    <div class="badge">Most Popular</div>
-                    <h3>Professional</h3>
-                    <p class="price">$699<span>/month</span></p>
-                    <p class="description">Ideal for growing businesses</p>
-                    <ul class="features">
-                        <li><i class="fas fa-check"></i> Website Development</li>
-                        <li><i class="fas fa-check"></i> Advanced SEO</li>
-                        <li><i class="fas fa-check"></i> Social Media Management</li>
-                        <li><i class="fas fa-check"></i> Content Creation (4 posts/month)</li>
-                        <li><i class="fas fa-check"></i> Analytics & Reporting</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary">Get Started</a>
-                </div>
-
-                <div class="pricing-card">
-                    <h3>Enterprise</h3>
-                    <p class="price">Custom<span>/month</span></p>
-                    <p class="description">For large-scale operations</p>
-                    <ul class="features">
-                        <li><i class="fas fa-check"></i> Custom Development</li>
-                        <li><i class="fas fa-check"></i> Full Marketing Strategy</li>
-                        <li><i class="fas fa-check"></i> Dedicated Account Manager</li>
-                        <li><i class="fas fa-check"></i> Priority Support</li>
-                        <li><i class="fas fa-check"></i> Custom Solutions</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-secondary">Contact Us</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
+    <!-- Contact Section with Forms -->
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Get in Touch</h2>
-            <p class="section-subtitle">Let's work together to grow your business</p>
+            <p class="section-subtitle">Let's discuss your project and how we can help</p>
             
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-envelope"></i>
+            <div class="contact-content">
+                <!-- Newsletter Subscription Form -->
+                <div class="form-container">
+                    <h3>📧 Subscribe to Newsletter</h3>
+                    <form id="newsletterForm" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="newsletterName" placeholder="Your Name" required>
                         </div>
-                        <div class="info-content">
-                            <h4>Email</h4>
-                            <p>bayezid@connect-with-bayezid.com</p>
+                        <div class="form-group">
+                            <input type="email" id="newsletterEmail" placeholder="Your Email" required>
                         </div>
-                    </div>
-
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="info-content">
-                            <h4>WhatsApp</h4>
-                            <p><a href="https://wa.me/message/TDYG575YENF6F1" target="_blank">Chat on WhatsApp</a></p>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="info-content">
-                            <h4>Location</h4>
-                            <p>Tangail, Bangladesh</p>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <div class="info-content">
-                            <h4>Website</h4>
-                            <p><a href="https://www.sayadbayezid.com" target="_blank">www.sayadbayezid.com</a></p>
-                        </div>
-                    </div>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                        <div id="newsletterStatus" class="form-status"></div>
+                    </form>
                 </div>
 
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" placeholder="Subject" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Your Message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
+                <!-- Client Inquiry Form -->
+                <div class="form-container">
+                    <h3>📝 Send Inquiry</h3>
+                    <form id="inquiryForm" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="inquiryName" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="inquiryEmail" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="inquiryMessage" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Inquiry</button>
+                        <div id="inquiryStatus" class="form-status"></div>
+                    </form>
+                </div>
 
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <h2>Ready to Grow Your Digital Presence?</h2>
-            <p>Let's work together to bring your vision to life</p>
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">Get Started Today</a>
-                <a href="https://wa.me/message/TDYG575YENF6F1" target="_blank" class="btn btn-secondary">Chat on WhatsApp</a>
+                <!-- Feedback Form -->
+                <div class="form-container">
+                    <h3>⭐ Share Feedback</h3>
+                    <form id="feedbackForm" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="feedbackName" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="feedbackEmail" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Rating:</label>
+                            <div class="rating-input">
+                                <label><input type="radio" name="rating" value="1"> ⭐</label>
+                                <label><input type="radio" name="rating" value="2"> ⭐⭐</label>
+                                <label><input type="radio" name="rating" value="3"> ⭐⭐⭐</label>
+                                <label><input type="radio" name="rating" value="4"> ⭐⭐⭐⭐</label>
+                                <label><input type="radio" name="rating" value="5"> ⭐⭐⭐⭐⭐</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="feedbackMessage" placeholder="Your Feedback" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Feedback</button>
+                        <div id="feedbackStatus" class="form-status"></div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -502,53 +210,241 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Connect With Bayezid</h4>
-                    <p>Your trusted partner for digital growth and online success.</p>
-                    <div class="social-links">
-                        <a href="https://facebook.com/Sayadbayezid" target="_blank"><i class="fab fa-facebook"></i></a>
-                        <a href="https://twitter.com/Sayadbayezid" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="https://linkedin.com/in/Sayadbayezid" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/Sayadbayezid" target="_blank"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#about">About</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="#services">Web Development</a></li>
-                        <li><a href="#services">Digital Marketing</a></li>
-                        <li><a href="#services">SEO Services</a></li>
-                        <li><a href="#services">Content Creation</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Email: bayezid@connect-with-bayezid.com</p>
-                    <p>WhatsApp: <a href="https://wa.me/message/TDYG575YENF6F1" target="_blank">Chat Now</a></p>
-                    <p>Location: Tangail, Bangladesh</p>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2024 Connect With Bayezid. All rights reserved.</p>
-                <p>Designed & Developed by Sayad Md Bayezid</p>
-            </div>
+            <p>&copy; 2024 Connect With Bayezid. All rights reserved.</p>
+            <p>Email: <a href="mailto:sayadmdbayezidhosan@gmail.com">sayadmdbayezidhosan@gmail.com</a></p>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <!-- Form Handlers -->
+    <script>
+        // Newsletter Form
+        document.getElementById('newsletterForm')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('newsletterName').value;
+            const email = document.getElementById('newsletterEmail').value;
+            const statusDiv = document.getElementById('newsletterStatus');
+
+            try {
+                statusDiv.textContent = '⏳ Subscribing...';
+                statusDiv.className = 'form-status loading';
+
+                const result = await manusAPI.subscribeNewsletter(email, name);
+
+                if (result.success) {
+                    statusDiv.textContent = '✅ Successfully subscribed!';
+                    statusDiv.className = 'form-status success';
+                    document.getElementById('newsletterForm').reset();
+                    manusAPI.showNotification('✅ Successfully subscribed to newsletter!', 'success');
+                } else {
+                    throw new Error(result.error || 'Subscription failed');
+                }
+            } catch (error) {
+                statusDiv.textContent = '❌ Error: ' + error.message;
+                statusDiv.className = 'form-status error';
+                manusAPI.showNotification('❌ Error: ' + error.message, 'error');
+            }
+        });
+
+        // Inquiry Form
+        document.getElementById('inquiryForm')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('inquiryName').value;
+            const email = document.getElementById('inquiryEmail').value;
+            const message = document.getElementById('inquiryMessage').value;
+            const statusDiv = document.getElementById('inquiryStatus');
+
+            try {
+                statusDiv.textContent = '⏳ Sending inquiry...';
+                statusDiv.className = 'form-status loading';
+
+                const result = await manusAPI.submitInquiry(name, email, message);
+
+                if (result.success) {
+                    statusDiv.textContent = '✅ Inquiry sent!';
+                    statusDiv.className = 'form-status success';
+                    document.getElementById('inquiryForm').reset();
+                    manusAPI.showNotification('✅ Inquiry sent successfully!', 'success');
+                } else {
+                    throw new Error(result.error || 'Inquiry submission failed');
+                }
+            } catch (error) {
+                statusDiv.textContent = '❌ Error: ' + error.message;
+                statusDiv.className = 'form-status error';
+                manusAPI.showNotification('❌ Error: ' + error.message, 'error');
+            }
+        });
+
+        // Feedback Form
+        document.getElementById('feedbackForm')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('feedbackName').value;
+            const email = document.getElementById('feedbackEmail').value;
+            const rating = parseInt(document.querySelector('input[name="rating"]:checked')?.value || 0);
+            const message = document.getElementById('feedbackMessage').value;
+            const statusDiv = document.getElementById('feedbackStatus');
+
+            if (!rating) {
+                statusDiv.textContent = '❌ Please select a rating';
+                statusDiv.className = 'form-status error';
+                manusAPI.showNotification('❌ Please select a rating', 'error');
+                return;
+            }
+
+            try {
+                statusDiv.textContent = '⏳ Submitting feedback...';
+                statusDiv.className = 'form-status loading';
+
+                const result = await manusAPI.submitFeedback(name, email, rating, message);
+
+                if (result.success) {
+                    statusDiv.textContent = '✅ Thank you for your feedback!';
+                    statusDiv.className = 'form-status success';
+                    document.getElementById('feedbackForm').reset();
+                    manusAPI.showNotification('✅ Thank you for your feedback!', 'success');
+                } else {
+                    throw new Error(result.error || 'Feedback submission failed');
+                }
+            } catch (error) {
+                statusDiv.textContent = '❌ Error: ' + error.message;
+                statusDiv.className = 'form-status error';
+                manusAPI.showNotification('❌ Error: ' + error.message, 'error');
+            }
+        });
+
+        // Log that API client is ready
+        console.log('✅ All forms initialized and ready to connect to Manus backend');
+    </script>
+
+    <!-- Form Styles -->
+    <style>
+        .contact {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h3 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .rating-input {
+            display: flex;
+            gap: 10px;
+            font-size: 24px;
+        }
+
+        .rating-input label {
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.2s;
+        }
+
+        .rating-input input {
+            display: none;
+        }
+
+        .rating-input input:checked + label {
+            opacity: 1;
+        }
+
+        .rating-input label:hover {
+            opacity: 0.8;
+        }
+
+        .form-status {
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: 500;
+            min-height: 20px;
+        }
+
+        .form-status.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .form-status.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .form-status.loading {
+            background-color: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+    </style>
 </body>
 </html>
