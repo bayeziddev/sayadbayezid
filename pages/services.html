@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Connect With Bayezid</title>
+    <meta name="description" content="Explore our comprehensive digital services and solutions">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .breadcrumb {
+            background-color: var(--light-bg);
+            padding: 20px 0;
+            margin-bottom: 40px;
+        }
+
+        .breadcrumb-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+
+        .breadcrumb-content a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb-content a:hover {
+            color: var(--secondary-color);
+        }
+
+        .breadcrumb-content span {
+            color: var(--text-light);
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .services-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .services-header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .service-card-detailed {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .service-card-detailed:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .service-icon-large {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card-detailed h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .service-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        .service-body {
+            padding: 25px;
+        }
+
+        .service-description {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .service-features li {
+            padding: 10px 0;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .service-features li:last-child {
+            border-bottom: none;
+        }
+
+        .service-features i {
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .service-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .service-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .modal-header h2 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: var(--text-dark);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        .form-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .success-message {
+            display: none;
+            background: var(--success);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .error-message {
+            display: none;
+            background: var(--danger);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .pricing-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin-top: 60px;
+        }
+
+        .pricing-section h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .pricing-section p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <span class="logo-icon">CWB</span>
+                    <span class="logo-text">Connect With Bayezid</span>
+                </div>
+                <div class="nav-menu" id="navMenu">
+                    <a href="../index.html" class="nav-link">Home</a>
+                    <a href="services.html" class="nav-link active">Services</a>
+                    <a href="portfolio.html" class="nav-link">Portfolio</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-content">
+                <a href="../index.html">Home</a>
+                <span>/</span>
+                <span>Services</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Header -->
+    <section class="services-header">
+        <div class="container">
+            <h1>Our Services</h1>
+            <p>Comprehensive digital solutions tailored to your business needs and growth objectives</p>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="container">
+        <div class="services-grid">
+            <!-- Web Development Service -->
+            <div class="service-card-detailed">
+                <div class="service-header">
+                    <div class="service-icon-large">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <div class="service-price">From $2,500</div>
+                </div>
+                <div class="service-body">
+                    <p class="service-description">Custom websites and web applications built with modern technologies, responsive design, and SEO optimization.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Responsive Design</li>
+                        <li><i class="fas fa-check"></i> SEO Optimized</li>
+                        <li><i class="fas fa-check"></i> Fast Performance</li>
+                        <li><i class="fas fa-check"></i> Mobile Friendly</li>
+                        <li><i class="fas fa-check"></i> Security Focused</li>
+                    </ul>
+                    <button class="service-btn" onclick="openOrderModal('Web Development', 2500)">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Digital Strategy Service -->
+            <div class="service-card-detailed">
+                <div class="service-header">
+                    <div class="service-icon-large">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Digital Strategy</h3>
+                    <div class="service-price">From $1,500</div>
+                </div>
+                <div class="service-body">
+                    <p class="service-description">Strategic planning for your digital growth including market analysis, competitor research, and growth roadmap.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Market Analysis</li>
+                        <li><i class="fas fa-check"></i> Competitor Research</li>
+                        <li><i class="fas fa-check"></i> Growth Roadmap</li>
+                        <li><i class="fas fa-check"></i> KPI Definition</li>
+                        <li><i class="fas fa-check"></i> Implementation Plan</li>
+                    </ul>
+                    <button class="service-btn" onclick="openOrderModal('Digital Strategy', 1500)">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Social Media Management Service -->
+            <div class="service-card-detailed">
+                <div class="service-header">
+                    <div class="service-icon-large">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Social Media Management</h3>
+                    <div class="service-price">From $1,000/month</div>
+                </div>
+                <div class="service-body">
+                    <p class="service-description">Engaging content creation and community management across all major social media platforms.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Content Creation</li>
+                        <li><i class="fas fa-check"></i> Community Management</li>
+                        <li><i class="fas fa-check"></i> Analytics & Reporting</li>
+                        <li><i class="fas fa-check"></i> Engagement Strategy</li>
+                        <li><i class="fas fa-check"></i> Ad Management</li>
+                    </ul>
+                    <button class="service-btn" onclick="openOrderModal('Social Media Management', 1000)">Order Now</button>
+                </div>
+            </div>
+
+            <!-- SEO & Marketing Service -->
+            <div class="service-card-detailed">
+                <div class="service-header">
+                    <div class="service-icon-large">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>SEO & Marketing</h3>
+                    <div class="service-price">From $2,000</div>
+                </div>
+                <div class="service-body">
+                    <p class="service-description">Comprehensive SEO optimization and digital marketing strategies to boost your online visibility.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> On-Page SEO</li>
+                        <li><i class="fas fa-check"></i> Off-Page SEO</li>
+                        <li><i class="fas fa-check"></i> Keyword Research</li>
+                        <li><i class="fas fa-check"></i> Link Building</li>
+                        <li><i class="fas fa-check"></i> Performance Tracking</li>
+                    </ul>
+                    <button class="service-btn" onclick="openOrderModal('SEO & Marketing', 2000)">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Content Creation Service -->
+            <div class="service-card-detailed">
+                <div class="service-header">
+                    <div class="service-icon-large">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <h3>Content Creation</h3>
+                    <div class="service-price">From $500/month</div>
+                </div>
+                <div class="service-body">
+                    <p class="service-description">High-quality content creation including blog posts, articles, videos, and multimedia content.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Blog Posts</li>
+                        <li><i class="fas fa-check"></i> Video Scripts</li>
+                        <li><i class="fas fa-check"></i> Copywriting</li>
+                        <li><i class="fas fa-check"></i> Infographics</li>
+                        <li><i class="fas fa-check"></i> Email Campaigns</li>
+                    </ul>
+                    <button class="service-btn" onclick="openOrderModal('Content Creation', 500)">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Consulting Service -->
+            <div class="service-card-detailed">
+                <div class="service-header">
+                    <div class="service-icon-large">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Business Consulting</h3>
+                    <div class="service-price">From $3,000</div>
+                </div>
+                <div class="service-body">
+                    <p class="service-description">Expert consulting services to help your business navigate digital transformation and growth.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Business Analysis</li>
+                        <li><i class="fas fa-check"></i> Process Optimization</li>
+                        <li><i class="fas fa-check"></i> Technology Recommendations</li>
+                        <li><i class="fas fa-check"></i> Change Management</li>
+                        <li><i class="fas fa-check"></i> Training & Support</li>
+                    </ul>
+                    <button class="service-btn" onclick="openOrderModal('Business Consulting', 3000)">Order Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="container">
+        <div class="pricing-section">
+            <h2>Flexible Pricing for Every Budget</h2>
+            <p>Choose the service that fits your needs. Custom packages available upon request.</p>
+            <a href="contact.html" class="btn" style="background: white; color: var(--primary-color); font-weight: 700;">Request Custom Quote</a>
+        </div>
+    </section>
+
+    <!-- Order Modal -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Order <span id="serviceName"></span></h2>
+                <button class="close-btn" onclick="closeOrderModal()">&times;</button>
+            </div>
+            <div id="successMessage" class="success-message">
+                <i class="fas fa-check-circle"></i> Order submitted successfully! We'll contact you soon.
+            </div>
+            <div id="errorMessage" class="error-message">
+                <i class="fas fa-exclamation-circle"></i> <span id="errorText"></span>
+            </div>
+            <form id="orderForm" onsubmit="submitOrder(event)">
+                <div class="form-group">
+                    <label for="clientName">Full Name *</label>
+                    <input type="text" id="clientName" name="clientName" required>
+                </div>
+                <div class="form-group">
+                    <label for="clientEmail">Email Address *</label>
+                    <input type="email" id="clientEmail" name="clientEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="clientPhone">Phone Number</label>
+                    <input type="tel" id="clientPhone" name="clientPhone">
+                </div>
+                <div class="form-group">
+                    <label for="budget">Budget</label>
+                    <input type="text" id="budget" name="budget" placeholder="e.g., $5,000" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="orderDetails">Project Details *</label>
+                    <textarea id="orderDetails" name="orderDetails" placeholder="Tell us about your project..." required></textarea>
+                </div>
+                <button type="submit" class="form-submit">Submit Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Connect With Bayezid</h4>
+                    <p>Your trusted partner for digital excellence and business growth.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Connect With Bayezid. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/api.js"></script>
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Order modal functions
+        function openOrderModal(serviceName, price) {
+            document.getElementById('serviceName').textContent = serviceName;
+            document.getElementById('budget').value = '$' + price.toLocaleString();
+            document.getElementById('orderModal').classList.add('show');
+            document.getElementById('successMessage').style.display = 'none';
+            document.getElementById('errorMessage').style.display = 'none';
+            document.getElementById('orderForm').reset();
+        }
+
+        function closeOrderModal() {
+            document.getElementById('orderModal').classList.remove('show');
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('orderModal');
+            if (event.target === modal) {
+                closeOrderModal();
+            }
+        });
+
+        // Submit order form
+        async function submitOrder(event) {
+            event.preventDefault();
+            const submitBtn = event.target.querySelector('button[type="submit"]');
+
+            const formData = {
+                clientName: document.getElementById('clientName').value,
+                clientEmail: document.getElementById('clientEmail').value,
+                serviceName: document.getElementById('serviceName').textContent,
+                orderDetails: document.getElementById('orderDetails').value,
+                budget: document.getElementById('budget').value
+            };
+
+            // Validate email
+            if (!validateEmail(formData.clientEmail)) {
+                showNotification('Please enter a valid email address', 'error');
+                return;
+            }
+
+            try {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Submitting...';
+
+                const result = await submitServiceOrder(formData);
+
+                if (result.success) {
+                    document.getElementById('successMessage').style.display = 'block';
+                    document.getElementById('orderForm').reset();
+                    showNotification(APP_CONFIG.FORMS.MESSAGES.ORDER_SUCCESS, 'success');
+                    setTimeout(() => {
+                        closeOrderModal();
+                    }, 2000);
+                } else {
+                    throw new Error(result.error);
+                }
+            } catch (error) {
+                console.error('Order submission error:', error);
+                document.getElementById('errorText').textContent = error.message || APP_CONFIG.FORMS.MESSAGES.ORDER_ERROR;
+                document.getElementById('errorMessage').style.display = 'block';
+                showNotification(APP_CONFIG.FORMS.MESSAGES.ORDER_ERROR, 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Order';
+            }
+        }
+    </script>
+</body>
+</html>

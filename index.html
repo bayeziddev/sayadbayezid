@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect With Bayezid - Digital Services</title>
+    <meta name="description" content="Professional digital marketing, web development, SEO, and content creation services">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #6366f1;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #6366f1;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            font-size: 40px;
+            text-align: center;
+            margin-bottom: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-container h3 {
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .rating-input {
+            display: flex;
+            gap: 10px;
+            font-size: 24px;
+        }
+
+        .rating-input label {
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.2s;
+        }
+
+        .rating-input input {
+            display: none;
+        }
+
+        .rating-input input:checked + label {
+            opacity: 1;
+        }
+
+        .rating-input label:hover {
+            opacity: 0.8;
+        }
+
+        .form-status {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: 500;
+            min-height: 20px;
+        }
+
+        .form-status.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .form-status.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .form-status.loading {
+            background-color: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .nav-menu {
+                gap: 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">CWB</div>
+                <div class="nav-menu">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1 class="hero-title">Connect With Bayezid</h1>
+            <p class="hero-subtitle">Your Digital Growth Partner</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn btn-primary">Explore Services</a>
+                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-code"></i></div>
+                    <h3>Web Development</h3>
+                    <p>Custom websites and applications built with modern technologies.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Digital Strategy</h3>
+                    <p>Strategic planning for your digital growth and market success.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-users"></i></div>
+                    <h3>Social Media</h3>
+                    <p>Engaging content creation and community management.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>SEO & Marketing</h3>
+                    <p>Boost your visibility and reach your target audience.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-pen-fancy"></i></div>
+                    <h3>Content Creation</h3>
+                    <p>High-quality blog posts and multimedia content.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Mobile Apps</h3>
+                    <p>Native and cross-platform mobile applications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="contact-content">
+                <!-- Newsletter Form -->
+                <div class="form-container">
+                    <h3>📧 Newsletter</h3>
+                    <form id="newsletterForm">
+                        <div class="form-group">
+                            <input type="text" id="newsletterName" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="newsletterEmail" placeholder="Your Email" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                        <div id="newsletterStatus" class="form-status"></div>
+                    </form>
+                </div>
+
+                <!-- Inquiry Form -->
+                <div class="form-container">
+                    <h3>📝 Inquiry</h3>
+                    <form id="inquiryForm">
+                        <div class="form-group">
+                            <input type="text" id="inquiryName" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="inquiryEmail" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="inquiryMessage" placeholder="Your Message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send</button>
+                        <div id="inquiryStatus" class="form-status"></div>
+                    </form>
+                </div>
+
+                <!-- Feedback Form -->
+                <div class="form-container">
+                    <h3>⭐ Feedback</h3>
+                    <form id="feedbackForm">
+                        <div class="form-group">
+                            <input type="text" id="feedbackName" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="feedbackEmail" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Rating:</label>
+                            <div class="rating-input">
+                                <label><input type="radio" name="rating" value="1"> ⭐</label>
+                                <label><input type="radio" name="rating" value="2"> ⭐⭐</label>
+                                <label><input type="radio" name="rating" value="3"> ⭐⭐⭐</label>
+                                <label><input type="radio" name="rating" value="4"> ⭐⭐⭐⭐</label>
+                                <label><input type="radio" name="rating" value="5"> ⭐⭐⭐⭐⭐</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="feedbackMessage" placeholder="Your Feedback" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <div id="feedbackStatus" class="form-status"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Connect With Bayezid. All rights reserved.</p>
+            <p>Email: <a href="mailto:sayadmdbayezidhosan@gmail.com">sayadmdbayezidhosan@gmail.com</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple API client
+        class APIClient {
+            constructor() {
+                this.baseURL = 'https://3000-i4kwlegwrpztrx28w06b5-f57d078f.us1.manus.computer/api/trpc';
+                console.log('✅ API Client Ready:', this.baseURL);
+            }
+
+            async request(endpoint, data) {
+                try {
+                    const url = `${this.baseURL}${endpoint}`;
+                    console.log('📤 Sending to:', url);
+                    
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data),
+                    });
+
+                    console.log('Response status:', response.status);
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}`);
+                    }
+
+                    const result = await response.json();
+                    console.log('✅ Success:', result);
+                    return { success: true, data: result };
+                } catch (error) {
+                    console.error('❌ Error:', error);
+                    return { success: false, error: error.message };
+                }
+            }
+
+            async submitNewsletter(email, name) {
+                return this.request('/newsletters.subscribe', {
+                    subscriberEmail: email,
+                    subscriberName: name,
+                });
+            }
+
+            async submitInquiry(name, email, message) {
+                return this.request('/inquiries.submit', {
+                    name, email, message,
+                });
+            }
+
+            async submitFeedback(name, email, rating, message) {
+                return this.request('/feedback.submit', {
+                    feedbackName: name,
+                    feedbackEmail: email,
+                    feedbackRating: rating,
+                    feedbackMessage: message,
+                });
+            }
+
+            showNotification(message, type = 'success') {
+                const div = document.createElement('div');
+                div.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    padding: 15px 20px;
+                    background: ${type === 'success' ? '#4CAF50' : '#f44336'};
+                    color: white;
+                    border-radius: 5px;
+                    z-index: 9999;
+                `;
+                div.textContent = message;
+                document.body.appendChild(div);
+                setTimeout(() => div.remove(), 3000);
+            }
+        }
+
+        const api = new APIClient();
+
+        // Newsletter Form
+        document.getElementById('newsletterForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('newsletterName').value;
+            const email = document.getElementById('newsletterEmail').value;
+            const status = document.getElementById('newsletterStatus');
+
+            status.textContent = '⏳ Subscribing...';
+            status.className = 'form-status loading';
+
+            const result = await api.submitNewsletter(email, name);
+            
+            if (result.success) {
+                status.textContent = '✅ Subscribed!';
+                status.className = 'form-status success';
+                document.getElementById('newsletterForm').reset();
+                api.showNotification('✅ Successfully subscribed!', 'success');
+            } else {
+                status.textContent = '❌ Error: ' + result.error;
+                status.className = 'form-status error';
+                api.showNotification('❌ Error: ' + result.error, 'error');
+            }
+        });
+
+        // Inquiry Form
+        document.getElementById('inquiryForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('inquiryName').value;
+            const email = document.getElementById('inquiryEmail').value;
+            const message = document.getElementById('inquiryMessage').value;
+            const status = document.getElementById('inquiryStatus');
+
+            status.textContent = '⏳ Sending...';
+            status.className = 'form-status loading';
+
+            const result = await api.submitInquiry(name, email, message);
+            
+            if (result.success) {
+                status.textContent = '✅ Sent!';
+                status.className = 'form-status success';
+                document.getElementById('inquiryForm').reset();
+                api.showNotification('✅ Inquiry sent!', 'success');
+            } else {
+                status.textContent = '❌ Error: ' + result.error;
+                status.className = 'form-status error';
+                api.showNotification('❌ Error: ' + result.error, 'error');
+            }
+        });
+
+        // Feedback Form
+        document.getElementById('feedbackForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('feedbackName').value;
+            const email = document.getElementById('feedbackEmail').value;
+            const rating = parseInt(document.querySelector('input[name="rating"]:checked')?.value || 0);
+            const message = document.getElementById('feedbackMessage').value;
+            const status = document.getElementById('feedbackStatus');
+
+            if (!rating) {
+                status.textContent = '❌ Please select a rating';
+                status.className = 'form-status error';
+                return;
+            }
+
+            status.textContent = '⏳ Submitting...';
+            status.className = 'form-status loading';
+
+            const result = await api.submitFeedback(name, email, rating, message);
+            
+            if (result.success) {
+                status.textContent = '✅ Thank you!';
+                status.className = 'form-status success';
+                document.getElementById('feedbackForm').reset();
+                api.showNotification('✅ Thank you for your feedback!', 'success');
+            } else {
+                status.textContent = '❌ Error: ' + result.error;
+                status.className = 'form-status error';
+                api.showNotification('❌ Error: ' + result.error, 'error');
+            }
+        });
+    </script>
+</body>
+</html>

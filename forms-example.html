@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms Example - Connect With Bayezid</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8f9fa;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            border-radius: 12px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .forms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .form-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #6366f1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-card h2 i {
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
+            font-size: 0.9rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="number"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .message {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 6px;
+            display: none;
+            animation: slideDown 0.3s ease;
+        }
+
+        .message.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #6ee7b7;
+            display: block;
+        }
+
+        .message.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fca5a5;
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-10px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .setup-section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .setup-section h2 {
+            color: #6366f1;
+            margin-bottom: 15px;
+        }
+
+        .setup-section p {
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .setup-code {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            margin: 15px 0;
+            border-left: 4px solid #6366f1;
+        }
+
+        .rating-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .rating-group input[type="radio"] {
+            display: none;
+        }
+
+        .rating-group label {
+            margin: 0;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #ddd;
+            transition: color 0.3s ease;
+        }
+
+        .rating-group input[type="radio"]:checked + label,
+        .rating-group label:hover {
+            color: #fbbf24;
+        }
+
+        .info-box {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .info-box strong {
+            color: #1e40af;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            border-top: 1px solid #ddd;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .forms-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1><i class="fas fa-forms"></i> Forms Integration Example</h1>
+            <p>Complete working example with Newsletter, Inquiry, Order, and Feedback forms</p>
+        </header>
+
+        <!-- Setup Instructions -->
+        <div class="setup-section">
+            <h2><i class="fas fa-cog"></i> Setup Instructions</h2>
+            <div class="info-box">
+                <strong>⚠️ IMPORTANT:</strong> Before using these forms, you must set your Manus backend URL!
+            </div>
+            
+            <h3 style="margin-top: 20px; margin-bottom: 10px;">Step 1: Update Backend URL</h3>
+            <p>Open browser console (F12) and run:</p>
+            <div class="setup-code">setManusBacendUrl('https://your-manus-backend.com/api/trpc');</div>
+            
+            <h3 style="margin-top: 20px; margin-bottom: 10px;">Step 2: Verify Configuration</h3>
+            <p>Run this to check your setup:</p>
+            <div class="setup-code">logApiConfig();</div>
+
+            <h3 style="margin-top: 20px; margin-bottom: 10px;">Step 3: Test Forms</h3>
+            <p>Fill out any form below and submit. Check browser console (F12) for logs and responses.</p>
+        </div>
+
+        <!-- Forms Grid -->
+        <div class="forms-grid">
+            <!-- Newsletter Form -->
+            <div class="form-card">
+                <h2><i class="fas fa-envelope"></i> Newsletter Subscription</h2>
+                <form id="newsletterForm">
+                    <div class="form-group">
+                        <label for="newsletter-name">Your Name *</label>
+                        <input 
+                            type="text" 
+                            id="newsletter-name" 
+                            placeholder="John Doe" 
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="newsletter-email">Email Address *</label>
+                        <input 
+                            type="email" 
+                            id="newsletter-email" 
+                            placeholder="john@example.com" 
+                            required
+                        >
+                    </div>
+                    <button type="submit">Subscribe</button>
+                    <div id="newsletter-message" class="message"></div>
+                </form>
+            </div>
+
+            <!-- Inquiry Form -->
+            <div class="form-card">
+                <h2><i class="fas fa-comment"></i> Client Inquiry</h2>
+                <form id="inquiryForm">
+                    <div class="form-group">
+                        <label for="inquiry-name">Your Name *</label>
+                        <input 
+                            type="text" 
+                            id="inquiry-name" 
+                            placeholder="Jane Smith" 
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="inquiry-email">Email Address *</label>
+                        <input 
+                            type="email" 
+                            id="inquiry-email" 
+                            placeholder="jane@example.com" 
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="inquiry-message">Message *</label>
+                        <textarea 
+                            id="inquiry-message" 
+                            placeholder="Tell us about your project..." 
+                            required
+                        ></textarea>
+                    </div>
+                    <button type="submit">Send Inquiry</button>
+                    <div id="inquiry-message" class="message"></div>
+                </form>
+            </div>
+
+            <!-- Service Order Form -->
+            <div class="form-card">
+                <h2><i class="fas fa-shopping-cart"></i> Service Order</h2>
+                <form id="orderForm">
+                    <div class="form-group">
+                        <label for="order-name">Your Name *</label>
+                        <input 
+                            type="text" 
+                            id="order-name" 
+                            placeholder="Bob Johnson" 
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="order-email">Email Address *</label>
+                        <input 
+                            type="email" 
+                            id="order-email" 
+                            placeholder="bob@example.com" 
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="order-service">Service Name *</label>
+                        <input 
+                            type="text" 
+                            id="order-service" 
+                            placeholder="Web Development" 
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="order-description">Description *</label>
+                        <textarea 
+                            id="order-description" 
+                            placeholder="Describe your needs..." 
+                            required
+                        ></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="order-budget">Budget (Optional)</label>
+                        <input 
+                            type="text" 
+                            id="order-budget" 
+                            placeholder="e.g., $5000-$10000"
+                        >
+                    </div>
+                    <button type="submit">Place Order</button>
+                    <div id="order-message" class="message"></div>
+                </form>
+            </div>
+
+            <!-- Feedback Form -->
+            <div class="form-card">
+                <h2><i class="fas fa-star"></i> Feedback</h2>
+                <form id="feedbackForm">
+                    <div class="form-group">
+                        <label for="feedback-name">Your Name *</label>
+                        <input 
+                            type="text" 
+                            id="feedback-name" 
+                            placeholder="Alice Brown" 
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="feedback-email">Email Address *</label>
+                        <input 
+                            type="email" 
+                            id="feedback-email" 
+                            placeholder="alice@example.com" 
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label>Rating *</label>
+                        <div class="rating-group">
+                            <input type="radio" id="star5" name="rating" value="5" required>
+                            <label for="star5"><i class="fas fa-star"></i></label>
+                            
+                            <input type="radio" id="star4" name="rating" value="4">
+                            <label for="star4"><i class="fas fa-star"></i></label>
+                            
+                            <input type="radio" id="star3" name="rating" value="3">
+                            <label for="star3"><i class="fas fa-star"></i></label>
+                            
+                            <input type="radio" id="star2" name="rating" value="2">
+                            <label for="star2"><i class="fas fa-star"></i></label>
+                            
+                            <input type="radio" id="star1" name="rating" value="1">
+                            <label for="star1"><i class="fas fa-star"></i></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="feedback-message">Your Feedback *</label>
+                        <textarea 
+                            id="feedback-message" 
+                            placeholder="Share your feedback..." 
+                            required
+                        ></textarea>
+                    </div>
+                    <button type="submit">Submit Feedback</button>
+                    <div id="feedback-message" class="message"></div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Debug Section -->
+        <div class="setup-section">
+            <h2><i class="fas fa-bug"></i> Debug Console</h2>
+            <p>Open browser console (F12) to see API calls and responses. Available commands:</p>
+            <div class="setup-code">
+// View API configuration<br>
+logApiConfig();<br>
+<br>
+// Get current backend URL<br>
+getManusBacendUrl();<br>
+<br>
+// Set backend URL<br>
+setManusBacendUrl('https://your-backend.com/api/trpc');<br>
+<br>
+// Test API call<br>
+apiClient.subscribe('test@example.com', 'Test User').then(r => console.log(r));
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 Connect With Bayezid. All forms integrated with Manus backend.</p>
+        </footer>
+    </div>
+
+    <!-- API Client -->
+    <script src="js/api-client.js"></script>
+
+    <!-- Form Handlers -->
+    <script>
+        // ============================================
+        // NEWSLETTER FORM
+        // ============================================
+        document.getElementById('newsletterForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('newsletter-name').value;
+            const email = document.getElementById('newsletter-email').value;
+            const messageDiv = document.getElementById('newsletter-message');
+            const form = e.target;
+
+            // Validate email
+            if (!validateEmail(email)) {
+                messageDiv.className = 'message error';
+                messageDiv.textContent = '❌ Please enter a valid email address';
+                return;
+            }
+
+            try {
+                setFormLoading(form, true, 'Subscribing...');
+                messageDiv.className = 'message';
+                messageDiv.textContent = '';
+
+                const result = await apiClient.subscribe(email, name);
+                
+                messageDiv.className = 'message success';
+                messageDiv.innerHTML = '✅ Successfully subscribed! Check your email for confirmation.';
+                form.reset();
+                showNotification('Newsletter subscription successful!', 'success');
+            } catch (error) {
+                console.error('Newsletter error:', error);
+                messageDiv.className = 'message error';
+                messageDiv.innerHTML = `❌ Error: ${error.message}`;
+                showNotification('Failed to subscribe. Please try again.', 'error');
+            } finally {
+                setFormLoading(form, false);
+            }
+        });
+
+        // ============================================
+        // INQUIRY FORM
+        // ============================================
+        document.getElementById('inquiryForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const data = {
+                name: document.getElementById('inquiry-name').value,
+                email: document.getElementById('inquiry-email').value,
+                message: document.getElementById('inquiry-message').value
+            };
+            const messageDiv = document.getElementById('inquiry-message');
+            const form = e.target;
+
+            // Validate email
+            if (!validateEmail(data.email)) {
+                messageDiv.className = 'message error';
+                messageDiv.textContent = '❌ Please enter a valid email address';
+                return;
+            }
+
+            try {
+                setFormLoading(form, true, 'Sending...');
+                messageDiv.className = 'message';
+                messageDiv.textContent = '';
+
+                const result = await apiClient.submitInquiry(data);
+                
+                messageDiv.className = 'message success';
+                messageDiv.innerHTML = '✅ Inquiry sent! We\'ll contact you soon.';
+                form.reset();
+                showNotification('Inquiry submitted successfully!', 'success');
+            } catch (error) {
+                console.error('Inquiry error:', error);
+                messageDiv.className = 'message error';
+                messageDiv.innerHTML = `❌ Error: ${error.message}`;
+                showNotification('Failed to send inquiry. Please try again.', 'error');
+            } finally {
+                setFormLoading(form, false);
+            }
+        });
+
+        // ============================================
+        // ORDER FORM
+        // ============================================
+        document.getElementById('orderForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const data = {
+                clientName: document.getElementById('order-name').value,
+                clientEmail: document.getElementById('order-email').value,
+                serviceName: document.getElementById('order-service').value,
+                description: document.getElementById('order-description').value,
+                budget: document.getElementById('order-budget').value || null
+            };
+            const messageDiv = document.getElementById('order-message');
+            const form = e.target;
+
+            // Validate email
+            if (!validateEmail(data.clientEmail)) {
+                messageDiv.className = 'message error';
+                messageDiv.textContent = '❌ Please enter a valid email address';
+                return;
+            }
+
+            try {
+                setFormLoading(form, true, 'Placing order...');
+                messageDiv.className = 'message';
+                messageDiv.textContent = '';
+
+                const result = await apiClient.createOrder(data);
+                
+                messageDiv.className = 'message success';
+                messageDiv.innerHTML = '✅ Order placed! We\'ll review and contact you shortly.';
+                form.reset();
+                showNotification('Order placed successfully!', 'success');
+            } catch (error) {
+                console.error('Order error:', error);
+                messageDiv.className = 'message error';
+                messageDiv.innerHTML = `❌ Error: ${error.message}`;
+                showNotification('Failed to place order. Please try again.', 'error');
+            } finally {
+                setFormLoading(form, false);
+            }
+        });
+
+        // ============================================
+        // FEEDBACK FORM
+        // ============================================
+        document.getElementById('feedbackForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const rating = document.querySelector('input[name="rating"]:checked');
+            if (!rating) {
+                alert('Please select a rating');
+                return;
+            }
+
+            const data = {
+                name: document.getElementById('feedback-name').value,
+                email: document.getElementById('feedback-email').value,
+                rating: parseInt(rating.value),
+                message: document.getElementById('feedback-message').value
+            };
+            const messageDiv = document.getElementById('feedback-message');
+            const form = e.target;
+
+            // Validate email
+            if (!validateEmail(data.email)) {
+                messageDiv.className = 'message error';
+                messageDiv.textContent = '❌ Please enter a valid email address';
+                return;
+            }
+
+            try {
+                setFormLoading(form, true, 'Submitting...');
+                messageDiv.className = 'message';
+                messageDiv.textContent = '';
+
+                const result = await apiClient.submitFeedback(data);
+                
+                messageDiv.className = 'message success';
+                messageDiv.innerHTML = '✅ Thank you for your feedback!';
+                form.reset();
+                // Reset stars
+                document.querySelectorAll('input[name="rating"]').forEach(r => r.checked = false);
+                showNotification('Feedback submitted successfully!', 'success');
+            } catch (error) {
+                console.error('Feedback error:', error);
+                messageDiv.className = 'message error';
+                messageDiv.innerHTML = `❌ Error: ${error.message}`;
+                showNotification('Failed to submit feedback. Please try again.', 'error');
+            } finally {
+                setFormLoading(form, false);
+            }
+        });
+
+        // ============================================
+        // INITIALIZATION
+        // ============================================
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('%c🚀 Forms Example Loaded', 'font-size: 16px; color: #6366f1; font-weight: bold;');
+            console.log('Available commands:');
+            console.log('  - logApiConfig()');
+            console.log('  - getManusBacendUrl()');
+            console.log('  - setManusBacendUrl("https://your-backend.com/api/trpc")');
+            logApiConfig();
+        });
+    </script>
+</body>
+</html>
