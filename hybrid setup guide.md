@@ -1,5 +1,5 @@
 # Hybrid Setup Guide: GitHub Pages + Manus Backend
-## Complete Documentation for www.sayadbayezid.com
+## Complete Documentation for https://github.com/bayeziddev/sayadbayezid
 
 ---
 
@@ -20,7 +20,7 @@
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                    Your Portfolio Website                    │
-│              www.sayadbayezid.com (GitHub Pages)             │
+│              https://github.com/bayeziddev/sayadbayezid (GitHub Pages)             │
 │                                                              │
 │  ┌──────────────────────────────────────────────────────┐   │
 │  │  Static HTML Pages                                   │   │
@@ -100,7 +100,7 @@ User sees confirmation message
 ```bash
 # On GitHub.com
 1. Go to https://github.com/new
-2. Repository name: sayadbayezid.github.io
+2. Repository name: https://github.com/bayeziddev/sayadbayezid
 3. Make it PUBLIC
 4. Click "Create repository"
 ```
